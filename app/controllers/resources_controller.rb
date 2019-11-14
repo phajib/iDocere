@@ -37,12 +37,10 @@ class ResourcesController < ApplicationController
         else
             render :edit
         end
-      end
     end
   
     def destroy
         @resource.destroy
-        respond_to do |format|
         redirect_to resources_url(current_user), notice: "Resource deleted."
     end
 
@@ -54,4 +52,4 @@ class ResourcesController < ApplicationController
       def resource_params
         params.require(:resource).permit(:grade_level, :subject, :assignment, :user_id, :parent_id, :student_id)
       end
-  end
+end
