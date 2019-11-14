@@ -1,5 +1,4 @@
 class Resource < ApplicationRecord
     belongs_to :teacher
-    belongs_to :parent
-    belongs_to :student
+    has_many: parents
 end
