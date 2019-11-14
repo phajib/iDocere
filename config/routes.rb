@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :teachers
   root 'resources#index'
   
   resources :messages

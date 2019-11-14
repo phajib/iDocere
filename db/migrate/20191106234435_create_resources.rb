@@ -7,9 +7,7 @@ class CreateResources < ActiveRecord::Migration[6.0]
       t.integer :teacher_id
       t.integer :parent_id
       t.integer :student_id
-      t.belongs_to :teacher
-      t.belongs_to :parent
-      t.belongs_to :student
+      t.integer :message_id
 
       t.timestamps
     end
