@@ -24,21 +24,19 @@ class MessagesController < ApplicationController
         @message.resource_id = @resource.id
       
         if @message.save
-            redirect_to root_path @message, notice: 'Message was successfully created.' }
+            redirect_to root_path @message, notice: 'Message was successfully created.'
         else
             @errors = @message.errors.full_messages
             render 'new'
         end
-      end
     end
   
     def update
         if @message.update(message_params)
-            redirect_to messages_path (current_user, @message), notice: 'Message was successfully updated.'
+            redirect_to messages_path(current_user, @messages), notice: 'Message was successfully updated.'
         else
             render 'edit'
         end
-      end
     end
   
     def destroy
@@ -54,5 +52,4 @@ class MessagesController < ApplicationController
       def message_params
         params.require(:message).permit(:title, :description)
       end
-  end
-  
+end
