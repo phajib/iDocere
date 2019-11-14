@@ -6,6 +6,8 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'searchkick', '~> 4.1'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
 
 # gem 'fileutils', '~> 0.7.2'
 
