@@ -35,6 +35,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :school
       t.boolean :admin, default: false
+      t.string :uid
+      t.string :google_token
+      t.string :google_refresh_token
       t.integer :parent_id
       t.integer :student_id
       t.integer :resource_id
