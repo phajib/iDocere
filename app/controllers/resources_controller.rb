@@ -33,7 +33,7 @@ class ResourcesController < ApplicationController
   
     def update
         if @resource.update(resource_params)
-            redirect_to user_resource_path (current_user, @resource), notice: 'Resource updated.'
+            redirect_to user_resource_path(current_user, @resource), notice: 'Resource updated.'
         else
             render :edit
         end
@@ -45,14 +45,13 @@ class ResourcesController < ApplicationController
         respond_to do |format|
         redirect_to resources_url(current_user), notice: "Resource deleted."
     end
-  
+
     private
       def find_resource
         @resource = Resource.find(params[:id])
       end
-  
+
       def resource_params
         params.require(:resource).permit(:grade_level, :subject, :assignment, :user_id, :parent_id, :student_id)
       end
   end
-  
