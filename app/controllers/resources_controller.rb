@@ -19,9 +19,8 @@ class ResourcesController < ApplicationController
     end
   
     def create
-        @resource = current_user.resources.build(resource_params)
-        # @resource = Resource.new(resource_params)
-        # @resource.user_id = current_user.id
+        @resource = Resource.new(resource_params)
+        @resource.user_id = current_user.id
         # @resource.resource_id = @resource.id
   
         if @resource.save
