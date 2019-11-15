@@ -1,0 +1,8 @@
+<h3>Results</h3>
+
+<% if user_signed_in? %>
+  <%= render 'resourceTable', resources: @resources %>
+<% else %>
+  <i> No Results </i>
+<% end %>
+<%= link_to 'Back', :back %>

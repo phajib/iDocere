@@ -1,1 +1,9 @@
-<h1>All Resources</h1>
+<% if teacher_signed_in? %>
+  <div class="jumbotron">
+    <h2><%= current_user.name %>'s Resources</h2>
+    <hr class="my-4">
+    <%= link_to 'New Resource', new_resource_path, class: "btn btn-outline-info btn-lg" %>
+  </div>
+<% end %>
+
+<%= render 'resourceTable', resources: @resources %>

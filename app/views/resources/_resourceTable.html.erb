@@ -1,0 +1,23 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Grade level</th>
+        <th>Subject</th>
+        <th>Assignment</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @resources.each do |r| %>
+        <tr>
+          <tr class="table-row" onclick=location.href='<%= resource_path(r) %>'>
+            <td><%= "#{r.grade_level}" %></td>
+            <td><%= "#{r.subject}" %></td>
+            <td><%= "#{r.assignment}"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
