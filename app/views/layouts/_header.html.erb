@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+  <div class="container">
+    <%= link_to "iDocere", root_path, class: "navbar-brand" %><span class="sr-only">(current)</span>
+    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <% if user_signed_in? %>
+          <li class="dropdown nav-item active">
+              <button class = "dropbtn">Resources</button>
+                <div class="dropdown-content">
+                  <%= link_to "#{current_user.name}'s Resources", resources_path %><span class="sr-only">(current)</span>
+                  <%= link_to 'New Resource', new_resource_path %>
+                </div>
+          </li>
+          <li class="dropdown">
+              <button class = "dropbtn">Message Board</button>
+                <div class="dropdown-content">
+                  <%= link_to 'View All Messages', messages_path %>
+                  <%= link_to 'New Message', new_message_path %>
+                </div>
+          </li>
+          
+          <div class="float-sm-right">
+            <%= form_tag search_resources_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+              <%= text_field_tag :search, params[:search], class: "form-control-sm mr-sm-2", placeholder:"Search" %>
+              <%= submit_tag "Search", name: nil, class: "btn btn-sm btn-outline-info float-right" %>
+            <% end %>
+          </div>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+          <li><%= link_to "Log In", new_user_session_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+
+      <% if user_signed_in? %>
+        <div class="dropdown">
+            <button class = "dropbtn"><%="#{current_user.name}'s Account" %></button>
+              <div class="dropdown-content">
+                <%= link_to 'Edit Account', edit_user_registration_path %>
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+</nav>
