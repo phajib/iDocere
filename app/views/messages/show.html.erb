@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+	<h1>Message</h1>
+	<div class="container">
+		<h3><strong>Title:</strong> <i><%= @message.title %></i></h3>
+		<h3><strong>Message:</strong> <i><%= @message.description %></i></h3>
+		<h3><Strong>Posted by:</strong> <i><%= @message.teacher.email %> <em><%= time_ago_in_words(@message.created_at) %><em> ago</i></h3>
+	</div>
+	<div class="links btn-group">
+		<%= link_to "Back", messages_path %> | 
+		<% if @message.teacher_id == current_teacher.id %>
+			<%= link_to "Edit Message", edit_message_path(@message) %> | 
+			<%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" } %>
+		<% end %>
+	</div>
+</div>
