@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  # -----------------DEVISE-----------------
+  devise_for :users, controllers: { omniauth_callbacks: 'teachers/omniauth_callbacks', sessions: 'teachers/sessions' }
   
   root 'home#index'
   
-  resources :messages
-  resources :resources
+  # -----------------RESOURCES-----------------
+  resources :resources do
+    collection do
+      get 'search'
+    end
+    resources :messages, except: [:show, :index]
+  end
+
+  resources :messages do
+    collection do
+      get 'search'
+    end
+    resources :comments
+  end
 end
