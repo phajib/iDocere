@@ -41,6 +41,7 @@
         <div class="dropdown">
             <button class = "dropbtn"><%="#{current_user.name}'s Account" %></button>
               <div class="dropdown-content">
+                <%#= link_to 'Invite User', new_user_registration_path %>
                 <%= link_to 'Edit Account', edit_user_registration_path %>
                 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
               </div>
