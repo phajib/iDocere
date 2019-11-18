@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_084612) do
   create_table "resources", force: :cascade do |t|
     t.integer "grade_level"
     t.string "subject"
-    t.string "assignment"
+    t.text "assignment"
     t.integer "user_id"
     t.integer "parent_id"
     t.integer "student_id"
