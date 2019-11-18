@@ -1,14 +1,19 @@
 class ResourcesController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update, :destroy]  
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
     
   def search
-    if params[:search].present? && current_user
+    if params[:search].present?
+      # @resource = Resource.search(params[:search], index_name: [Resource.searchkick_index.name, Message.searchkick_index.name])
+      # @resources = Resource.search(params[:search], execute: false)
+      # @messages = Message.search(params[:search], execute: false)
+      # Searchkick.multi_search([@resources, @messages])
+      
       @resources = Resource.search(params[:search])
-      @messages = Message.search(params[:search])
+      # @messages = Message.search(params[:search])
     else
       @resources = Resource.all
-      @messages = Message.all
+      # @messages = Message.all
     end
   end
 

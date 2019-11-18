@@ -1,8 +1,14 @@
-<h3>Results</h3>
+<h3>Search Results</h3>
 
-<% if user_signed_in? %>
-  <%= render 'resourceTable', resources: @resources %>
-<% else %>
-  <i> No Results </i>
-<% end %>
+  <div class="container">
+    <h4>Resources</h4>
+    <%= render 'resourceTable', resources: @resources %>
+  </div>
+  <br />
+  
+  <!--<div class="container">
+    <h4>Messages</h4>
+    <%#= render 'messages/messageTable', resources: @messages %>
+  </div>-->
+
 <%= link_to 'Back', :back %>

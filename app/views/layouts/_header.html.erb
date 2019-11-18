@@ -27,7 +27,7 @@
           
           <div class="float-sm-right">
             <%= form_tag search_resources_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-              <%= text_field_tag :search, params[:search], class: "form-control-sm mr-sm-2", placeholder:"Search" %>
+              <%= text_field_tag :search, params[:search], class: "form-control-sm mr-sm-2", placeholder:"Search for Resources" %> 
               <%= submit_tag "Search", name: nil, class: "btn btn-sm btn-outline-info float-right" %>
             <% end %>
           </div>

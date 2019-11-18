@@ -10,13 +10,17 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :messages
+    resources :messages do
+      collection do
+        get 'search'
+      end
+    end
   end
 
   resources :messages do
-    collection do
-      get 'search'
-    end
+    # collection do
+    #   get 'search'
+    # end
     resources :comments
   end
 end
