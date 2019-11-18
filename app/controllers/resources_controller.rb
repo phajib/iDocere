@@ -2,6 +2,16 @@ class ResourcesController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update, :destroy]  
   before_action :authenticate_user!
     
+  def search
+    if params[:search].present? && current_user
+      @resources = Resource.search(params[:search])
+      @messages = Message.search(params[:search])
+    else
+      @resources = Resource.all
+      @messages = Message.all
+    end
+  end
+
     def index
       # @resources = Resource.all
       @resources = current_user.resources.all.order("created_at DESC")
