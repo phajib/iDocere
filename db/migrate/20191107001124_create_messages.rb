@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration[6.0]
     create_table :messages do |t|
       t.string :title
       t.text :description
-      t.integer :teacher_id
+      t.integer :user_id
       t.integer :parent_id
       t.string :resource_id
 
