@@ -13,7 +13,8 @@ class MessagesController < ApplicationController
     end
   
     def new
-      @message = current_user.messages.build
+      @message = Message.new
+      # @message = current_user.messages.build
     end
   
     def edit
@@ -25,7 +26,7 @@ class MessagesController < ApplicationController
         @message.resource_id = @resource.id
       
         if @message.save
-            redirect_to @message, notice: 'Message was successfully created.'
+            redirect_to @resource
         else
             render 'new'
         end
@@ -42,7 +43,7 @@ class MessagesController < ApplicationController
   
     def destroy
         @message.destroy
-        redirect_to messages_url, notice: 'Message was successfully destroyed.'
+        redirect_to @message
     end
   
     private
@@ -50,11 +51,11 @@ class MessagesController < ApplicationController
         @message = Message.find(params[:id])
       end
   
-      def message_params
-        params.require(:message).permit(:title, :description)
-      end
-
     # def find_resource
     #   @resource = Resource.find(params[:resource_id])
     # end
+
+      def message_params
+        params.require(:message).permit(:title, :description)
+      end
 end
