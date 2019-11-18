@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
-    before_action :authenticate_user!
     before_action :find_message, only: [:show, :edit, :update, :destroy]
+    # before_action :find_resource
+    before_action :authenticate_user!
   
     def index
       # @messages = Message.all
@@ -24,19 +25,19 @@ class MessagesController < ApplicationController
         @message.resource_id = @resource.id
       
         if @message.save
-            redirect_to root_path @message, notice: 'Message was successfully created.'
+            redirect_to @message, notice: 'Message was successfully created.'
         else
-            @errors = @message.errors.full_messages
             render 'new'
         end
     end
   
     def update
-        if @message.update(message_params)
-            redirect_to messages_path(current_user, @messages), notice: 'Message was successfully updated.'
-        else
-            render 'edit'
-        end
+      @message.update(message_params)
+    #     if @message.update(message_params)
+    #         redirect_to messages_path(current_user, @messages), notice: 'Message was successfully updated.'
+    #     else
+    #         render 'edit'
+    #     end
     end
   
     def destroy
@@ -52,4 +53,8 @@ class MessagesController < ApplicationController
       def message_params
         params.require(:message).permit(:title, :description)
       end
+
+    # def find_resource
+    #   @resource = Resource.find(params[:resource_id])
+    # end
 end
