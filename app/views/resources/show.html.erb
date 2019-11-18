@@ -8,11 +8,25 @@
     <h3><strong>Time Created:</strong> <i><%= time_ago_in_words(@resource.created_at) %> ago</i></h3>
   </div>
 
-  <div class="links btn-group">
-    <%= link_to 'Back', resources_path %>
-    <% if @resource.user_id == current_user.id %>
-      <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
-      <%= link_to 'Delete', @resource, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+  <br />
+  <div class="container">
+  <h3>Messages</h3>
+    <% if @messages.blank? %>
+      <h5><i>No messages relating to this Resource.</i></h5>
+      <% if @resource.user_id == current_user.id %>
+      <div class="links btn-group">
+        <%= link_to 'New Message', new_resource_message_path(@resource) %>
+      </div>
+      <% end %>
+    <% else %>
+      <%= render '/messages/messageTable'%>
     <% end %>
+    <div class="links btn-group">
+      <% if @resource.user_id == current_user.id %>
+        |<%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
+        <%= link_to 'Delete', @resource, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+      <% end %>
+      <%= link_to 'Back', resources_path %>
+    </div>
   </div>
-user
+</div>
