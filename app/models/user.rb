@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
   
   has_many :resources, dependent: :destroy
-  has_many :messages
-  has_many :comments
+  has_many :messages, through: :resources
+  has_many :comments, through: :messages
   # has_many :parents
   # has_many :students, through: :parents
 
