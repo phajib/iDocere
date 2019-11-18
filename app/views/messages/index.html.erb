@@ -1,17 +1,10 @@
 <% if user_signed_in? %>
   <div class="jumbotron">
-    <h2>weTeach Messsage Board</h2>
+    <h2>iDocere Messsage Board</h2>
     <hr class="my-4">
     <%= link_to 'New Message', new_message_path, class: "btn btn-outline-info btn-lg" %>
   </div>
 <% end %>
 
-<% if @messages.blank? %>
-  <i>No messages.</i>
-<% else %>
-  <%= render 'messageTable', messages: @messages%>
-<% end %>
+<%= render 'messageTable', messages: @messages %>
 
-<br />
-
-<%= link_to "Back", :back %>

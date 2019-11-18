@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :messages, except: [:show, :index]
+    resources :messages
   end
 
   resources :messages do

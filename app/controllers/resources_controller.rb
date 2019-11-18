@@ -48,6 +48,6 @@ class ResourcesController < ApplicationController
       end
 
       def resource_params
-        params.require(:resource).permit(:grade_level, :subject, :assignment)
+        params.require(:resource).permit(:grade_level, :subject, :assignment, :resource_id)
       end
 end

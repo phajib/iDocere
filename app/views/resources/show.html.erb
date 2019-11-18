@@ -19,14 +19,13 @@
       </div>
       <% end %>
     <% else %>
-      <%= render '/messages/messageTable'%>
+      <%= render '/messages/messageTable' %>
     <% end %>
     <div class="links btn-group">
       <% if @resource.user_id == current_user.id %>
-        |<%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
-        <%= link_to 'Delete Resource', @resource, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+        <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
+        <%= link_to 'Delete Resource', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
-      <%= link_to 'Back', resources_path %>
     </div>
   </div>
 </div>
