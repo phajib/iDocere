@@ -1,35 +1,39 @@
 <div class="panel panel-default">
   <div class="panel-body">
-  <div class="row">
-  <h1>Resource</h1>
-  <div class="container">
-    <h3><strong>Grade Level:</strong> <i><%= @resource.grade_level %></i></h3>
-    <h3><strong>Subject:</strong> <i><%= @resource.subject %></i></h3>
-    <h3><strong>Assignment:</strong> <i><%= @resource.assignment %></i></h3>
-    <h3><strong>Created By:</strong> <i><%= @resource.user.name %></i></h3>
-    <h3><strong>Time Created:</strong> <i><%= time_ago_in_words(@resource.created_at) %> ago</i></h3>
-  </div>
-
-  <br />
-  <div class="col-md-7 col-md-offset-1">
-  <h3>Messages</h3>
-    <% if @messages.blank? %>
-      <h5><i>No messages relating to this Resource.</i></h5>
-      <% if @resource.user_id == current_user.id %>
-      <div class="links btn-group">
-        <%= link_to 'New Message', new_resource_message_path(@resource) %>
+    <div class="row">
+      <div class="col">
+        <h1>Resource</h1>
+        <div class="container">
+          <h3><strong>Grade Level:</strong> <i><%= @resource.grade_level %></i></h3>
+          <h3><strong>Subject:</strong> <i><%= @resource.subject %></i></h3>
+          <h3><strong>Assignment:</strong> <i><%= @resource.assignment %></i></h3>
+          <h3><strong>Created By:</strong> <i><%= @resource.user.name %></i></h3>
+          <h3><strong>Time Created:</strong> <i><%= time_ago_in_words(@resource.created_at) %> ago</i></h3>
+        </div>
       </div>
-      <% end %>
-    <% else %>
-      <%= render '/messages/messageTable' %>
-    <% end %>
-    <div class="links btn-group">
-      <% if @resource.user_id == current_user.id %>
-        <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
-        <%= link_to 'Delete Resource', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+
+      <br />
+      <div class="col-sm">
+        <h3>Messages</h3>
+          <% if @messages.blank? %>
+            <h5><i>No messages relating to this Resource.</i></h5>
+            <% if @resource.user_id == current_user.id %>
+            <div class="links btn-group">
+              <%= link_to 'New Message', new_resource_message_path(@resource) %>
+            </div>
+            <% end %>
+          <% else %>
+            <div class="container">
+              <%= render '/messages/messageTable' %>
+            </div>
+          <% end %>
+          <div class="links btn-group">
+            <% if @resource.user_id == current_user.id %>
+              <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
+              <%= link_to 'Delete Resource', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </div>
