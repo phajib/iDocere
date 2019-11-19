@@ -13,21 +13,17 @@
 
   <body>
     <%= render 'layouts/header'%>
-
     <div class="alert alert-dismissible fade show">
       <% flash.each do |name, msg| %>
-        <div class="<%= flash_class(name) %> alert-dismissible fade show">
+        <div class="<%= flash_class(name) %>">
             <%= msg %>
             <a href="#" class="close" data-dismiss="alert" aria-label="close" aria-hidden="true">&times;</a>
         </div>
       <% end %>
     </div>
-
-    <div class="container">
-      <hr>
-      
+    <hr>
+    <div class="container"> 
         <br /><%= yield %>
-      
     </div>
   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
