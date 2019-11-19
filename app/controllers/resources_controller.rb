@@ -1,7 +1,7 @@
 class ResourcesController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update, :destroy]  
-  before_action :authenticate_user!, except: [:index, :show]
-    
+  before_action :authenticate_user!
+ 
   def search
     if params[:search].present?
       # @resource = Resource.search(params[:search], index_name: [Resource.searchkick_index.name, Message.searchkick_index.name])

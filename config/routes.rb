@@ -1,26 +1,32 @@
 Rails.application.routes.draw do
 
   # -----------------DEVISE-----------------
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions',
+                                    registrations: 'users/registrations', confirmations: 'users/confirmations' }
   
-  root 'home#index'
   
   # -----------------RESOURCES-----------------
   resources :resources do
     collection do
       get 'search'
     end
-    resources :messages do
-      collection do
-        get 'search'
-      end
-    end
+    resources :messages #do
+    #   collection do
+    #     get 'search'
+    #   end
+    # end
   end
 
-  resources :messages do
+  resources :messages #do
     # collection do
     #   get 'search'
     # end
-    resources :comments
+    # resources :comments
+  # end
+
+  as :user do
+    put '/user/confirmation' => 'users/confirmations#update', :via => :patch, :as => :update_user_confirmation
   end
+
+  root 'home#index'
 end
