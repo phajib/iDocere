@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
   
     def destroy
         @message.destroy
-        redirect_to @resource
+        redirect_to root_path
     end
   
     private
