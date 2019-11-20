@@ -19,6 +19,15 @@
 @import "bootstrap";
 
 
+div.msg-bg {
+	background-color: #F0F0F0;
+  }
+
+.scrollable {
+	height: 400px;
+	overflow-y: scroll;
+}
+
 
 .message_title {
 	margin: 0 0 20px 0;

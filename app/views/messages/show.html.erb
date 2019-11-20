@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<h1>Message</h1>
-	<div class="container">
+	<div class="container msg-bg">
 		<h3><strong>Title:</strong> <i><%= @message.title %></i></h3>
 		<h3><strong>Message:</strong> <i><%= @message.description %></i></h3>
 		<h3><Strong>Posted by:</strong> <i><%= @message.user.name %><em>, <%= time_ago_in_words(@message.created_at) %></em> ago</i></h3>

@@ -6,8 +6,9 @@
         <div class="container">
           <h3><strong>Grade Level:</strong> <i><%= @resource.grade_level %></i></h3>
           <h3><strong>Subject:</strong> <i><%= @resource.subject %></i></h3>
-          <div class="container">
-            <h3><strong>Assignment:</strong> <i><%= @resource.assignment %></i></h3>
+          <div class="scrollable" >
+            <h3><strong>Assignment:</strong></h3>
+            <br /><h5> <i><%= @resource.assignment %></i></h5>
           </div>
           <h3><strong>Created By:</strong> <i><%= @resource.user.name %></i></h3>
           <h3><strong>Time Created:</strong> <i><%= time_ago_in_words(@resource.created_at) %> ago</i></h3>
@@ -15,7 +16,7 @@
       </div>
 
       <br />
-      <div class="col-sm">
+      <div class="col-sm msg-bg">
         <h3>Messages</h3>
           <% if @messages.blank? %>
             <h5><i>No messages relating to this Resource.</i></h5>

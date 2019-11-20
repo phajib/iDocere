@@ -6,5 +6,5 @@ class Message < ApplicationRecord
 
     has_rich_text :description
 
-    # Message.reindex
+    Message.reindex
 end
