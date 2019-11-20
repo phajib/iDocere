@@ -10,12 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require trix
  *= require_tree .
  *= require_self
  */
 
   // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+
 
 .message_title {
 	margin: 0 0 20px 0;

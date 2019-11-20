@@ -4,5 +4,7 @@ class Message < ApplicationRecord
 
     searchkick
 
+    has_rich_text :description
+
     # Message.reindex
 end

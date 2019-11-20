@@ -4,5 +4,7 @@ class Resource < ApplicationRecord
     # has_many :parents
     searchkick
 
+    has_rich_text :assignment
+
     Resource.reindex # or reindex_async
 end

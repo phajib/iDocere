@@ -20,4 +20,7 @@ require("channels")
 //= require popper
 //= require bootstrap
 //= require turbolinks
+//= require trix
 //= require_tree 
+require("trix")
+require("@rails/actiontext")
