@@ -1,22 +1,23 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="row">
+    <div class="row mw-100">
       <div class="col">
         <h1>Resource</h1>
         <div class="container">
-          <h3><strong>Grade Level:</strong> <i><%= @resource.grade_level %></i></h3>
-          <h3><strong>Subject:</strong> <i><%= @resource.subject %></i></h3>
-          <div class="scrollable" >
-            <h3><strong>Assignment:</strong></h3>
-            <br /><h5> <i><%= @resource.assignment %></i></h5>
+          <h5><strong>Grade Level:</strong> <i><%= @resource.grade_level %></i></h5>
+          <h5><strong>Subject:</strong> <i><%= @resource.subject %></i></h5>
+          <h5><strong>Created By:</strong> <i><%= @resource.user.name %></i></h5>
+          <h5><strong>Time Created:</strong> <i><%= time_ago_in_words(@resource.created_at) %> ago</i></h5>
+          <h5><strong>Assignment:</strong></h5>
+          <div class="scrollable msg-bg" >
+            <br /><p> <i><%= @resource.assignment %></i></p>
           </div>
-          <h3><strong>Created By:</strong> <i><%= @resource.user.name %></i></h3>
-          <h3><strong>Time Created:</strong> <i><%= time_ago_in_words(@resource.created_at) %> ago</i></h3>
+          
         </div>
       </div>
 
       <br />
-      <div class="col-sm msg-bg">
+      <div class="w-10 msg-bg">
         <h3>Messages</h3>
           <% if @messages.blank? %>
             <h5><i>No messages relating to this Resource.</i></h5>

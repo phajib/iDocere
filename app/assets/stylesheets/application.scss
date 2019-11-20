@@ -18,6 +18,10 @@
   // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+body {
+	background-image: url("stacked books.jpeg");
+	background-norepeat: no-repeat;
+}
 
 div.msg-bg {
 	background-color: #F0F0F0;

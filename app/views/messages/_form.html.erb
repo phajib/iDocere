@@ -1,5 +1,5 @@
 <p class="text-sm text-grey-dark my-2">
-Posted by <%= current_user.name %>
+Author - <%= current_user.name %>
 
 <%= form_for([@resource, @message]) do |f| %>
   <% if @message.errors.any? %>
@@ -19,7 +19,7 @@ Posted by <%= current_user.name %>
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field bg-white">
     <%= f.label :description %><br>
     <%= f.rich_text_area :description %>
   </div> 
