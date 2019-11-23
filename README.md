@@ -1,5 +1,4 @@
 # iDocere - iTeach
-===================
 
 **_iDocere_** is an app for Educational Advisors/Teachers, in helping them create Resources for a homeschool environment or online schooling.
 
@@ -13,10 +12,12 @@ To allows users to login with their Google account you will need to:
 3. Navigate to 'Credentials', then select the 'OAuth consent screen' tab on top, and provide an 'EMAIL ADDRESS' and a 'PRODUCT NAME'  
 4. Create a `.env` file at the root of your app and add your Client ID and Client Secret to the `.env` file like this:  
 
-  `GOOGLE_CLIENT_ID=Client ID Goes Here`
-  `GOOGLE_CLIENT_SECRET=Client Secret Goes Here`
+  ```
+  GOOGLE_CLIENT_ID=Client ID Goes Here
+  GOOGLE_CLIENT_SECRET=Client Secret Goes Here
+  ```
 
-### Setup for iDocere
+## Setup for iDocere
 1. Clone or download the repo [iDocere](https://github.com/phajib/iDocere).  
 2. Install **_elasticsearch_** by typing `brew install elasticsearch` in your terminal. Then execute `$ elasticsearch` to run it.  
 3. Open a new terminal window, to install **_mailcatcher_** by executing `gem install mailcatcher`. Then execute `$ mailcatcher` to run it.  
