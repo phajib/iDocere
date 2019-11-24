@@ -31,13 +31,13 @@
               <%= render '/messages/messageTable' %>
             </div>
           <% end %>
-          <div class="links btn-group">
-            <% if @resource.user_id == current_user.id %>
-              <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
-              <%= link_to 'Delete Resource', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          </div>
       </div>
+    </div>
+    <div class="links btn-group">
+      <% if @resource.user_id == current_user.id %>
+        <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
+        <%= link_to 'Delete Resource', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
   </div>
 </div>

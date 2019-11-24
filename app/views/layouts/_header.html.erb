@@ -12,6 +12,8 @@
               <button class = "dropbtn">Resources</button>
                 <div class="dropdown-content">
                   <%= link_to "#{current_user.name}'s Resources", resources_path %><span class="sr-only">(current)</span>
+                  <%= link_to 'Last Weeks Resources', last_weeks_resources_path %>
+                  <hr>
                   <%= link_to 'New Resource', new_resource_path %>
                 </div>
           </li>
@@ -19,6 +21,7 @@
               <button class = "dropbtn">Message Board</button>
                 <div class="dropdown-content">
                   <%= link_to 'View All Messages', messages_path %>
+                  <hr>
                   <%= link_to 'New Message', new_message_path %>
                 </div>
           </li>

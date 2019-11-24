@@ -4,8 +4,6 @@ class MessagesController < ApplicationController
     before_action :authenticate_user!
   
     def index
-      # @messages = Message.all
-      # @messages = current_user.messages.all
       @messages = Message.all.order("created_at DESC")
     end
   
@@ -21,8 +19,10 @@ class MessagesController < ApplicationController
     end
   
     def create
+      # If lines 23 & 24 and use line 25, you are prompted to include a user
         @message = Message.new(message_params)
         @message.user_id = current_user.id
+        # @message = current_user.messages.build(message_params)
         @message.resource_id = @resource.id
       
         if @message.save
@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
   
     def destroy
         @message.destroy
-        redirect_to root_path
+        redirect_to messages_path
     end
   
     private
@@ -52,7 +52,7 @@ class MessagesController < ApplicationController
       end
   
     def find_resource
-      @resource = Resource.find_by(params[:resource_id])
+      @resource = Resource.find_by_id(params[:resource_id])
     end
 
       def message_params
