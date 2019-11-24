@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <h2><%= current_user.name %>'s Resources</h2>
+  <h3><i>Last Weeks Resources<i></h3>
+  <hr class="my-4">
+</div>
+
+
+<%= render 'resourceTable', resources: @resources %>

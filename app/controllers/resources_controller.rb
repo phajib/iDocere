@@ -5,16 +5,20 @@ class ResourcesController < ApplicationController
   def search
     if params[:search].present?
       # @resource = Resource.search(params[:search], index_name: [Resource.searchkick_index.name, Message.searchkick_index.name])
-      # @resources = Resource.search(params[:search], execute: false)
-      # @messages = Message.search(params[:search], execute: false)
+      @resources = Resource.search params[:search], where: { user_id: current_user.id }
+      @messages = Message.search(params[:search])
       # Searchkick.multi_search([@resources, @messages])
-      
-      @resources = Resource.search(params[:search])
-      # @messages = Message.search(params[:search])
+      # @resources = Resource.search(params[:search])
     else
+      flash[:notice] = "No Results Found"
+      # @resources = current_user.resources.all.order("created_at DESC")
       @resources = Resource.all
-      # @messages = Message.all
+      @messages = Message.all
     end
+  end
+
+  def last_weeks
+    @resources = current_user.resources.all.last_weeks_resources
   end
 
     def index

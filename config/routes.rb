@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :resources do
     collection do
       get 'search'
+      get 'last_weeks'
     end
     resources :messages, except: [:show, :index] #do
     #   collection do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   # end
 
   as :user do
+  # When user confirms account, sent to this action           update via patch with this route
     put '/user/confirmation' => 'users/confirmations#update', :via => :patch, :as => :update_user_confirmation
   end
 
